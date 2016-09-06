@@ -36,7 +36,7 @@ User Result:
 {"User": "Marco"}
 ```
 Mod Result: 
-```
+```json
 {"Likes": 5, "User": "Marco"}
 ```
 ##NB
