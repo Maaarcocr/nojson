@@ -3,20 +3,13 @@ package nojson
 
 import (
 	"encoding/json"
-	"fmt"
 	"reflect"
 	"regexp"
 )
 
-type Test struct {
-	A string `nojson:"ta"`
-	B string `nojson:"ta;student"`
-}
-
 func readTag(tag string) []string {
 	r := regexp.MustCompile("[^;]*")
 	result := r.FindAllString(tag, -1)
-	fmt.Println(result)
 	return result
 }
 
@@ -68,7 +61,6 @@ func filter(tagName string, val interface{}) interface{} {
 
 func MarshalAndFilterBy(tag string, val interface{}) ([]byte, error) {
 	filteredMap := filter(tag, val)
-	fmt.Println(filteredMap)
 	JSONData, err := json.Marshal(filteredMap)
 	if err != nil {
 		return []byte{}, err
