@@ -21,17 +21,24 @@ type Post struct{
 
 func main(){
 	examplePost := Post{"Marco", 5, []string{"good", "i like it"}}
-	resultForUser, err := nojson.MarshalAndFilterBy("user", examplePost)
-	if err == nil {
+	resultForUser, err1 := nojson.MarshalAndFilterBy("user", examplePost)
+	resultForMod, err2 := nojson.MarshalAndFilterBy("mod", examplePost)
+	if err1 == nil {
 		fmt.Println(string(resultForUser))
+	}
+	if err2 == nil {
+		fmt.Println(string(resultForMod))
 	}
 }
 ```
-The stringified result will be: 
+User Result:
 ```json
 {"User": "Marco"}
 ```
-
+Mod Result: 
+```
+{"Likes": 5, "User": "Marco"}
+```
 ##NB
 1. The function MarshalAndFilterBy accept struct, slice and array as types. (If you use different types it won't complain at compile time, but you will have a nil result as result)
 2. The name used in the JSON result will be the Field Name (so there is no point in using the json tag to set a different name)
