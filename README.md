@@ -3,7 +3,10 @@ A Simple Golang library created in order to escape some Struct Fields easily whi
 ## Why I have created this library
 While I was developing a REST API server I needed to hide some struct field values from the client if he was not allowed to see that part of the data.
 I was using an ORM library so I needed an easy way to create a filtered json response.
-
+##Installation
+```
+go get github.com/Maaarcocr/nojson
+```
 ##Example
 
 ```go
